@@ -2932,3 +2932,89 @@ footer p {
         margin-top: 35px;
     }
 }
+/* =========================
+   PRODUCT PAGE MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+    .product-page {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 25px;
+
+        margin: 30px auto;
+
+        padding: 20px 16px;
+
+        text-align: center;
+    }
+
+    .product-page-image {
+        width: 100%;
+        max-width: 320px;
+
+        height: 320px;
+
+        border-radius: 22px;
+
+        overflow: hidden;
+    }
+
+    .product-page-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+
+        display: block;
+    }
+
+    .product-page-info {
+        width: 100%;
+        max-width: 360px;
+
+        padding: 0 10px;
+
+        box-sizing: border-box;
+    }
+
+    .product-page-info h1 {
+        font-size: 30px;
+
+        line-height: 1.2;
+
+        margin: 10px 0 15px;
+    }
+
+    #productDescription {
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 18px;
+    }
+
+    #productPrice {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+    }
+
+    .quantity-controls {
+        justify-content: center;
+    }
+
+    .add-cart-btn {
+        width: 100%;
+
+        max-width: 320px;
+
+        padding: 14px 20px;
+
+        font-size: 16px;
+    }
+}
