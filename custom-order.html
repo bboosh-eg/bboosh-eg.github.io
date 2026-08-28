@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Order - Bboosh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <img src="images/bboosh-logo.png" alt="Bboosh">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li>
+                <a href="custom-order.html" class="active-link">
+                    Custom Piece
+                </a>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+
+        <button class="hamburger">☰</button>
+
+    </div>
+</nav>
+<body>
+
+    <section class="custom-builder">
+
+        <div class="builder-header">
+            <span class="builder-kicker">✦ Build Your Piece</span>
+
+            <h1>
+                Your idea.<br>
+                Our stitches.
+            </h1>
+
+            <p>
+                Tell us what you imagine and we’ll turn it into a handmade crochet piece made especially for you.
+            </p>
+        </div>
+
+
+        <div class="builder-card">
+
+            <div class="builder-step">
+                <span class="step-number">01</span>
+
+                <h2>What do you want us to make?</h2>
+
+                <div class="piece-options">
+
+                    <button type="button" class="piece-option">
+                        👜
+                        <span>Bag</span>
+                    </button>
+
+                    <button type="button" class="piece-option">
+                        👕
+                        <span>Clothing</span>
+                    </button>
+
+                    <button type="button" class="piece-option">
+                        🎀
+                        <span>Accessory</span>
+                    </button>
+
+                    <button type="button" class="piece-option">
+                        ✦
+                        <span>Something Else</span>
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="builder-step">
+                <span class="step-number">02</span>
+
+                <h2>Tell us about your idea</h2>
+
+                <textarea
+                    id="customIdea"
+                    placeholder="Describe the piece, style, colors, details, or anything you have in mind..."
+                ></textarea>
+            </div>
+
+
+            <div class="builder-step">
+                <span class="step-number">03</span>
+
+                <h2>Preferred colors</h2>
+
+                <input
+                    type="text"
+                    id="customColors"
+                    placeholder="Example: beige, dusty pink, brown..."
+                >
+            </div>
+
+
+            <div class="builder-step">
+                <span class="step-number">04</span>
+
+                <h2>Size or measurements</h2>
+
+                <input
+                    type="text"
+                    id="customSize"
+                    placeholder="Size, measurements, age, etc."
+                >
+            </div>
+
+
+            <div class="builder-step inspiration-step">
+                <span class="step-number">05</span>
+
+                <h2>Have an inspiration photo?</h2>
+
+                <label class="upload-box" id="uploadBox">
+
+    <input
+        type="file"
+        id="customImage"
+        accept="image/*"
+    >
+
+    <div class="upload-placeholder" id="uploadPlaceholder">
+
+        <span class="upload-icon">＋</span>
+
+        <strong>Add Inspiration</strong>
+
+        <small>
+            Upload a photo, sketch, screenshot, or reference
+        </small>
+
+    </div>
+
+    <div class="image-preview-container" id="imagePreviewContainer">
+
+        <img id="imagePreview" alt="Your inspiration">
+
+        <span class="change-image">
+            ✦ Change inspiration
+        </span>
+
+    </div>
+
+</label>
+            </div>
+
+
+            <button class="send-custom-order-btn" type="button">
+                Send My Idea
+                <span>↗</span>
+            </button>
+
+        </div>
+
+    </section>
+<script src="custom-order.js"></script>
+<footer class="bboosh-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <h2>Bboosh ♡</h2>
+
+            <p>
+                Handmade crochet pieces,
+                made slowly, softly,
+                and with lots of love.
+            </p>
+
+            <span class="footer-note">
+                🧶 made one stitch at a time
+            </span>
+        </div>
+
+
+        <div class="footer-links">
+            <h3>Explore</h3>
+
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-order.html">Custom Piece</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+
+        <div class="footer-socials">
+            <h3>Find us</h3>
+
+            <a
+                href="https://www.instagram.com/sujoodbbosha?igsi=bWh5a3o1Z3ljc2N4"
+                target="_blank"
+            >
+                Instagram ↗
+            </a>
+
+            <a
+                href="https://www.facebook.com/sigood.bbosha"
+                target="_blank"
+            >
+                Facebook ↗
+            </a>
+
+            <a
+                href="https://wa.me/201503542454"
+                target="_blank"
+            >
+                WhatsApp ↗
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Bboosh
+        </span>
+
+        <span class="footer-heart">
+            made with ♡
+        </span>
+
+    </div>
+
+</footer>
+</body>
+
+</html>

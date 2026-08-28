@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bboosh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+
+       <a href="index.html" class="logo">
+    <img src="images/bboosh-logo.png" alt="Bboosh Logo">
+</a>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="custom-order.html">Custom Piece</a></li>
+           <a href="contact.html">Contact</a>
+           <li>
+    <a href="cart.html">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </a>
+</li>
+        </ul>
+
+    </div>
+</nav>
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="brand">Bboosh</div>
+
+            <h1>
+                Handmade pieces,
+                made with love.
+            </h1>
+
+            <p>
+                Cute and cozy crochet clothing
+                and accessories, handmade with love.
+            </p>
+
+            <a href="#" class="shop-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+       <div class="hero-image">
+    <img class="hero-logo" src="images/hero-logo.png" alt="Bboosh">
+</div>
+
+    </section>
+    <section class="products-section">
+  <h2 class="section-title">Our Collection</h2>
+
+  <div class="products-container" id="productsContainer">
+  </div>
+  <div class="view-all-wrapper">
+    <a href="shop.html" class="view-all-btn">
+        View All Products
+        <span>→</span>
+    </a>
+</div>
+</section>
+<section class="custom-order-section">
+
+    <div class="custom-order-orbit orbit-one"></div>
+    <div class="custom-order-orbit orbit-two"></div>
+
+    <div class="custom-order-card">
+
+        <div class="custom-order-copy">
+
+            <span class="custom-kicker">
+                ✦ Made Just For You
+            </span>
+
+            <h2>
+                Have a piece in mind?
+            </h2>
+
+            <p>
+                Send us your idea, colors, inspiration,
+                or even a photo — and we’ll turn it into
+                a handmade crochet piece made especially for you.
+            </p>
+
+            <a href="custom-order.html" class="custom-order-btn">
+                <span>Build Your Piece</span>
+                <span class="custom-arrow">↗</span>
+            </a>
+
+        </div>
+
+        <div class="custom-order-art">
+
+            <div class="yarn-ball">
+                🧶
+            </div>
+
+            <div class="floating-note note-one">
+                your idea
+            </div>
+
+            <div class="floating-note note-two">
+                your colors
+            </div>
+
+            <div class="floating-note note-three">
+                your piece ♡
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="about-section">
+  <h2 class="section-title">Made With Love</h2>
+
+  <p class="about-intro">
+    Welcome to Bboosh, a small handmade brand where every piece of crochet clothing and every accessory is created with warmth, care, and a whole lot of love. What started as a simple hobby has grown into a cozy little world of stitches, colors, and creativity.
+  </p>
+
+  <p class="about-craft">
+    Each item is handmade, stitch by stitch, with patience and attention to detail. No two pieces are ever exactly the same — because handmade means personal, imperfectly perfect, and made just for you.
+  </p>
+
+  <button class="learn-more-btn">Learn More</button>
+</section>
+<footer class="bboosh-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <h2>Bboosh ♡</h2>
+
+            <p>
+                Handmade crochet pieces,
+                made slowly, softly,
+                and with lots of love.
+            </p>
+
+            <span class="footer-note">
+                🧶 made one stitch at a time
+            </span>
+        </div>
+
+
+        <div class="footer-links">
+            <h3>Explore</h3>
+
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-order.html">Custom Piece</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+
+        <div class="footer-socials">
+            <h3>Find us</h3>
+
+            <a
+                href="https://www.instagram.com/sujoodbbosha?igsi=bWh5a3o1Z3ljc2N4"
+                target="_blank"
+            >
+                Instagram ↗
+            </a>
+
+            <a
+                href="https://www.facebook.com/sigood.bbosha"
+                target="_blank"
+            >
+                Facebook ↗
+            </a>
+
+            <a
+                href="https://wa.me/201503542454"
+                target="_blank"
+            >
+                WhatsApp ↗
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Bboosh
+        </span>
+
+        <span class="footer-heart">
+            made with ♡
+        </span>
+
+    </div>
+
+</footer>
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
