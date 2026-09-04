@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
 
@@ -8,7 +9,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Bboosh</title>
+    <title>Product - Bboosh</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,11 +18,52 @@
 
     <section class="product-page">
 
-        <div class="product-page-image">
-            <img id="productImage" src="" alt="">
+        <!-- PRODUCT GALLERY -->
+
+        <div class="product-gallery">
+
+            <div class="main-product-image">
+
+                <button
+                    class="gallery-arrow gallery-prev"
+                    id="galleryPrev"
+                    type="button"
+                >
+                    ‹
+                </button>
+
+                <img
+                    id="productImage"
+                    src=""
+                    alt="Product"
+                >
+
+                <button
+                    class="gallery-arrow gallery-next"
+                    id="galleryNext"
+                    type="button"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div
+                class="product-thumbnails"
+                id="productThumbnails"
+            ></div>
+
         </div>
 
+
+        <!-- PRODUCT INFO -->
+
         <div class="product-page-info">
+
+            <span class="product-badge">
+                ♡ Handmade
+            </span>
 
             <h1 id="productName"></h1>
 
@@ -29,14 +71,94 @@
 
             <p id="productPrice"></p>
 
-           <button class="add-cart-btn" onclick="addToCart()">
-    Add to Cart
-</button>
+
+            <button
+                class="add-cart-btn"
+                type="button"
+                onclick="addToCart()"
+            >
+                Add to Cart ♡
+            </button>
+
         </div>
 
     </section>
-<script src="products.js"></script>
+<!-- PRODUCT IMAGE LIGHTBOX -->
+
+<div class="product-lightbox" id="productLightbox">
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Product preview"
+    >
+
+    <p class="lightbox-hint">
+        Click anywhere outside the image to close ♡
+    </p>
+
+</div>
+<!-- MINI CART DRAWER -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="mini-cart" id="miniCart">
+
+    <div class="mini-cart-header">
+        <h2>Your Cart ♡</h2>
+
+        <button
+            class="mini-cart-close"
+            id="miniCartClose"
+            type="button"
+        >
+            ×
+        </button>
+    </div>
+
+    <div
+        class="mini-cart-items"
+        id="miniCartItems"
+    ></div>
+
+    <div class="mini-cart-footer">
+
+        <div class="mini-cart-total">
+            <span>Total</span>
+            <strong id="miniCartTotal">
+                0 EGP
+            </strong>
+        </div>
+
+        <a
+            href="cart.html"
+            class="mini-cart-view-btn"
+        >
+            View Cart →
+        </a>
+
+        <a
+            href="checkout.html"
+            class="mini-cart-checkout-btn"
+        >
+            Checkout ♡
+        </a>
+
+    </div>
+
+</aside>
+    <script src="products.js"></script>
     <script src="product.js"></script>
+    <script src="common.js"></script>
 
 </body>
+
 </html>

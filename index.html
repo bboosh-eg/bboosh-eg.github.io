@@ -21,22 +21,57 @@
   <nav class="navbar">
     <div class="nav-container">
 
-       <a href="index.html" class="logo">
-    <img src="images/bboosh-logo.png" alt="Bboosh Logo">
-</a>
+        <a href="index.html" class="logo">
+            <img src="images/bboosh-logo.png" alt="Bboosh Logo">
+        </a>
 
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <button
+            class="hamburger"
+            onclick="toggleMenu()"
+        >
+            ☰
+        </button>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="custom-order.html">Custom Piece</a></li>
-           <a href="contact.html">Contact</a>
-           <li>
-    <a href="cart.html">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </a>
-</li>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="custom-order.html">
+                    Custom Piece
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html">
+                    ♡ Favorites
+                    (<span id="favoriteCount">0</span>)
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    🛒 Cart
+                    (<span id="cartCount">0</span>)
+                </a>
+            </li>
+
         </ul>
 
     </div>
@@ -223,6 +258,7 @@ function toggleMenu() {
 </script>
 <script src="products.js"></script>
 <script src="script.js"></script>
+<script src="common.js"></script>
 
 </body>
 </html>

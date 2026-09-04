@@ -22,7 +22,7 @@ productCard.innerHTML = `
         </p>
 
         <p class="product-price">
-            $${product.price}
+    ${product.price} EGP
         </p>
 
         <button
@@ -67,3 +67,27 @@ function updateCartCount() {
 }
 
 updateCartCount();
+/* =========================
+   FAVORITES COUNT
+========================= */
+
+function updateFavoriteCount() {
+
+    const favoriteCount =
+        document.getElementById("favoriteCount");
+
+    if (!favoriteCount) {
+        return;
+    }
+
+    const favorites =
+        JSON.parse(
+            localStorage.getItem("bbooshFavorites")
+        ) || [];
+
+    favoriteCount.textContent =
+        favorites.length;
+}
+
+
+updateFavoriteCount();
