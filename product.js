@@ -439,15 +439,18 @@ function addToCart() {
     }
 
     if (
-    product.is_available === false ||
-    product.stock <= 0
-) {
+        product.is_available === false ||
+        product.stock <= 0
+    ) {
 
-    alert(
-        "This product is currently out of stock."
-    );
+        alert(
+            "This product is currently out of stock."
+        );
 
-    return;
+        return;
+    }
+
+    // باقي كود السلة...
 }
     let cart =
         JSON.parse(
