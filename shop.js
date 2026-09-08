@@ -2,71 +2,153 @@
 const shopProductsContainer =
     document.getElementById("shopProductsContainer");
 
-products.forEach(function(product) {
 
-    const productCard = document.createElement("div");
+/* =========================
+   LOAD PRODUCTS FROM SUPABASE
+========================= */
 
-    productCard.className = "product-card";
+async function loadShopProducts() {
 
-    productCard.innerHTML = `
-        <div class="product-info">
+    shopProductsContainer.innerHTML =
+        "<p>Loading products...</p>";
 
-            <span class="product-badge">
-                ♡ Handmade
-            </span>
 
-            <h3 class="product-name">
-                ${product.name}
-            </h3>
+    const { data: products, error } =
+        await supabaseClient
+            .from("products")
+            .select("*")
+            .eq("is_active", true)
+            .order("created_at", {
+                ascending: false
+            });
 
-            <p class="product-description">
-                ${product.description}
-            </p>
 
-            <p class="product-price">
-${product.price} EGP            </p>
+    if (error) {
 
-            <button
-                class="view-product-btn"
-                onclick="viewProduct(${product.id})"
-            >
-                <span>View Product</span>
-                <span class="button-arrow">→</span>
-            </button>
+        console.error(error);
 
-        </div>
+        shopProductsContainer.innerHTML =
+            "<p>Could not load products.</p>";
 
-        <div class="product-image-wrap">
+        return;
+    }
 
-    <button
-        class="favorite-btn"
-        data-id="${product.id}"
-        onclick="toggleFavorite(${product.id}, this)"
-        aria-label="Add to favorites"
-    >
-        ♡
-    </button>
 
-    <div class="product-image-blob">
-        <img
-            src="${product.image}"
-            alt="${product.name}"
-        >
-    </div>
+    shopProductsContainer.innerHTML = "";
 
-    <span class="product-doodle">♡</span>
 
-</div>
+    if (products.length === 0) {
 
-        </div>
-    `;
+        shopProductsContainer.innerHTML =
+            "<p>No products available yet.</p>";
 
-    shopProductsContainer.appendChild(productCard);
-});
+        return;
+    }
+
+
+    products.forEach(function(product) {
+
+        const productCard =
+            document.createElement("div");
+
+        productCard.className = "product-card";
+
+
+        productCard.innerHTML = `
+
+            <div class="product-info">
+
+                <span class="product-badge">
+                    ♡ Handmade
+                </span>
+
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+
+                <p class="product-description">
+                    ${product.description || ""}
+                </p>
+
+                <p class="product-price">
+                    ${product.price} EGP
+                </p>
+<p class="product-stock-status">
+    ${
+        product.is_available
+            ? "Available"
+            : "Out of Stock"
+    }
+</p>
+                <button
+                    class="view-product-btn"
+                    onclick="viewProduct(${product.id})"
+                >
+                    <span>View Product</span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+                </button>
+
+            </div>
+
+
+            <div class="product-image-wrap">
+
+                <button
+                    class="favorite-btn"
+                    data-id="${product.id}"
+                    onclick="toggleFavorite(${product.id}, this)"
+                    aria-label="Add to favorites"
+                >
+                    ♡
+                </button>
+
+
+                <div class="product-image-blob">
+
+                    <img
+                        src="${product.image_url || ""}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <span class="product-doodle">
+                    ♡
+                </span>
+
+            </div>
+
+        `;
+
+
+        shopProductsContainer.appendChild(
+            productCard
+        );
+
+    });
+
+
+    loadFavoriteButtons();
+
+}
+
+
+/* =========================
+   VIEW PRODUCT
+========================= */
 
 function viewProduct(id) {
-    window.location.href = `product.html?id=${id}`;
+
+    window.location.href =
+        `product.html?id=${id}`;
+
 }
+
+
 /* =========================
    FAVORITES
 ========================= */
@@ -74,80 +156,129 @@ function viewProduct(id) {
 function getFavorites() {
 
     return JSON.parse(
-        localStorage.getItem("bbooshFavorites")
+        localStorage.getItem(
+            "bbooshFavorites"
+        )
     ) || [];
 
 }
 
 
-function toggleFavorite(productId, button) {
+function toggleFavorite(
+    productId,
+    button
+) {
 
-    let favorites = getFavorites();
+    let favorites =
+        getFavorites();
+
 
     const alreadyFavorite =
-        favorites.includes(productId);
+        favorites.includes(
+            productId
+        );
 
 
     if (alreadyFavorite) {
 
-        favorites = favorites.filter(
-            function(id) {
-                return id !== productId;
-            }
-        );
+        favorites =
+            favorites.filter(
+                function(id) {
+
+                    return id !== productId;
+
+                }
+            );
+
 
         button.textContent = "♡";
 
-        button.classList.remove("favorite-active");
+        button.classList.remove(
+            "favorite-active"
+        );
 
     } else {
 
-        favorites.push(productId);
+        favorites.push(
+            productId
+        );
+
 
         button.textContent = "♥";
 
-        button.classList.add("favorite-active");
+        button.classList.add(
+            "favorite-active"
+        );
 
     }
 
 
     localStorage.setItem(
-    "bbooshFavorites",
-    JSON.stringify(favorites)
-);
+        "bbooshFavorites",
+        JSON.stringify(favorites)
+    );
 
-if (typeof updateFavoriteCount === "function") {
-    updateFavoriteCount();
+
+    if (
+        typeof updateFavoriteCount
+        === "function"
+    ) {
+
+        updateFavoriteCount();
+
+    }
+
 }
 
-}
 
+/* =========================
+   LOAD FAVORITE BUTTONS
+========================= */
 
 function loadFavoriteButtons() {
 
-    const favorites = getFavorites();
+    const favorites =
+        getFavorites();
+
 
     const favoriteButtons =
-        document.querySelectorAll(".favorite-btn");
+        document.querySelectorAll(
+            ".favorite-btn"
+        );
 
 
-    favoriteButtons.forEach(function(button) {
+    favoriteButtons.forEach(
+        function(button) {
 
-        const productId =
-            Number(button.dataset.id);
+            const productId =
+                Number(
+                    button.dataset.id
+                );
 
 
-        if (favorites.includes(productId)) {
+            if (
+                favorites.includes(
+                    productId
+                )
+            ) {
 
-            button.textContent = "♥";
+                button.textContent =
+                    "♥";
 
-            button.classList.add("favorite-active");
+                button.classList.add(
+                    "favorite-active"
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
 
 
-loadFavoriteButtons();
+/* =========================
+   START
+========================= */
+
+loadShopProducts();

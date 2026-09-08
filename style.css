@@ -4046,3 +4046,12 @@ footer p {
     color: #713f47;
 
 }
+.add-cart-btn.out-of-stock {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.add-cart-btn.out-of-stock:hover {
+    transform: none;
+}

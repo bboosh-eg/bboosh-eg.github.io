@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bboosh Admin</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <h1>Bboosh Admin Dashboard</h1>
+
+    <div id="loginSection">
+
+        <h2>Login</h2>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+
+    <div id="dashboardSection" style="display: none;">
+
+        <h2>Welcome to Bboosh Dashboard 🤎</h2>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+        <hr>
+<button id="addProductBtn">
+    + Add Product
+</button>
+
+<div id="productForm" style="display: none; margin-top: 20px;">
+
+    <h3>Add New Product</h3>
+
+    <input
+        type="text"
+        id="productName"
+        placeholder="Product Name"
+    >
+
+    <br><br>
+
+    <input
+        type="number"
+        id="productPrice"
+        placeholder="Price"
+    >
+
+    <br><br>
+
+    <input
+        type="number"
+        id="productStock"
+        placeholder="Stock"
+    >
+
+    <br><br>
+
+    <input
+        type="text"
+        id="productCategory"
+        placeholder="Category"
+    >
+
+    <br><br>
+
+    <textarea
+        id="productDescription"
+        placeholder="Description"
+    ></textarea>
+
+    <br><br>
+<label>Product Image</label>
+
+<br><br>
+
+<input
+    type="file"
+    id="productImage"
+    accept="image/*"
+    multiple
+>
+
+<br><br>
+    <button id="saveProductBtn">
+        Save Product
+    </button>
+
+    <button id="cancelProductBtn">
+        Cancel
+    </button>
+
+    <p id="productMessage"></p>
+
+</div>
+
+<hr>
+
+<h3>Products</h3>
+
+<div id="productsList"></div>
+
+
+    </div>
+
+
+    <!-- Supabase -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<!-- المنتجات القديمة -->
+<script src="products.js"></script>
+
+<script src="js/admin.js"></script>
+</body>
+
+</html>
