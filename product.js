@@ -432,6 +432,10 @@ function setupGallery() {
    ADD TO CART
 ========================= */
 
+/* =========================
+   ADD TO CART
+========================= */
+
 function addToCart() {
 
     if (!product) {
@@ -450,27 +454,19 @@ function addToCart() {
         return;
     }
 
-    // باقي كود السلة...
-}
+
     let cart =
         JSON.parse(
-            localStorage.getItem(
-                "cart"
-            )
+            localStorage.getItem("cart")
         ) || [];
 
 
     const existingProduct =
-        cart.find(
-            function(item) {
+        cart.find(function(item) {
 
-                return (
-                    item.id ===
-                    product.id
-                );
+            return item.id === product.id;
 
-            }
-        );
+        });
 
 
     if (existingProduct) {
@@ -494,8 +490,7 @@ function addToCart() {
 
 
     if (
-        typeof updateCartCount ===
-        "function"
+        typeof updateCartCount === "function"
     ) {
 
         updateCartCount();
@@ -504,8 +499,7 @@ function addToCart() {
 
 
     if (
-        typeof openMiniCart ===
-        "function"
+        typeof openMiniCart === "function"
     ) {
 
         openMiniCart();
