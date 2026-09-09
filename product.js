@@ -14,13 +14,30 @@ let product = null;
 
 async function loadProduct() {
 
-    const { data, error } =
+    // First: try current Supabase ID
+    let { data, error } =
         await supabaseClient
             .from("products")
             .select("*")
             .eq("id", productId)
             .eq("is_active", true)
-            .single();
+            .maybeSingle();
+
+
+    // If not found, try the old products.js ID
+    if (!data) {
+
+        const legacyResult =
+            await supabaseClient
+                .from("products")
+                .select("*")
+                .eq("legacy_id", productId)
+                .eq("is_active", true)
+                .maybeSingle();
+
+        data = legacyResult.data;
+        error = legacyResult.error;
+    }
 
 
     if (error || !data) {
@@ -36,24 +53,23 @@ async function loadProduct() {
     }
 
 
-    /*
-        نخلي بيانات Supabase متوافقة
-        مع الـCart والكود القديم
-    */
+    product = {
+        ...data,
 
-   product = {
-    ...data,
+        image: data.image_url,
 
-    image: data.image_url,
+        images:
+            Array.isArray(data.images) &&
+            data.images.length > 0
 
-    images:
-        Array.isArray(data.images) &&
-        data.images.length > 0
-            ? data.images
-            : data.image_url
-                ? [data.image_url]
-                : []
-};
+                ? data.images
+
+                : data.image_url
+                    ? [data.image_url]
+                    : []
+    };
+
+
     displayProduct();
 }
 
@@ -427,11 +443,6 @@ function setupGallery() {
 
 }
 
-
-/* =========================
-   ADD TO CART
-========================= */
-
 /* =========================
    ADD TO CART
 ========================= */
@@ -507,8 +518,6 @@ function addToCart() {
     }
 
 }
-
-
 /* =========================
    IMAGE LIGHTBOX
 ========================= */
